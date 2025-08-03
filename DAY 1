@@ -1,0 +1,40 @@
+The very first day of DSA Preparation starts here-
+
+Q1. Unique Paths
+
+// ways to solve - I try recursion via memoization part also it can be solved through Tabulation method
+
+Code Below
+----------
+
+class Solution {
+public:
+    int solve(vector<vector<int>> &grid,int m,int n,int i,int j){
+
+        if(i>=m || j>=n){
+            return 0;
+        }
+
+        if(i==m-1 && j==n-1){
+
+            return 1;
+
+        }
+
+        if(grid[i][j] != -1) return grid[i][j];
+
+        return grid[i][j] = solve(grid,m,n,i+1,j)+solve(grid,m,n,i,j+1);
+
+    }
+    
+    int uniquePaths(int m, int n) {
+
+        vector<vector<int>> grid(m,vector<int>(n,-1));
+     
+        return solve(grid,m,n,0,0);
+        
+        
+    }
+};
+
+Q2. 
