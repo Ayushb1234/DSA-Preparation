@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+
+        vector<int> ans;
+
+        int n = nums.size();
+
+        unordered_set<int> seen;
+
+        for(auto x:nums){
+            if(seen.count(x)){
+                ans.push_back(x);
+            }
+            seen.insert(x);
+        }
+        return ans;
+    }
+};
