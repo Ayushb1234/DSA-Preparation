@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int n;
+    vector<vector<int>> dp;
+
+    int solve(int i, int j, const vector<vector<int>>& tri) {
+        // bottom row: cost is the cell itself
+        if (i == n - 1) return tri[i][j];
+
+        int &memo = dp[i][j];
+        if (memo != -1) return memo;
+
+        int down      = solve(i + 1, j,     tri);
+        int downRight = solve(i + 1, j + 1, tri);
+
+        return memo = tri[i][j] + min(down, downRight);
+    }
+
+    int minimumTotal(vector<vector<int>>& triangle) {
+        n = triangle.size();
+        dp.assign(n, vector<int>(n, -1));
+        return solve(0, 0, triangle);
+    }
+};
