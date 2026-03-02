@@ -1,0 +1,23 @@
+def xorelement(nums,k):
+    
+    n = len(nums)
+    
+    ans = []
+    count = 0
+
+
+    for i in range(n):
+        
+        xorr = 0
+
+        
+        for j in range(i,n):
+            
+            xorr ^= nums[j]
+            
+
+            if xorr == k:
+                ans.append(j-i+1)
+                count += 1
+                
+    return ans,count
