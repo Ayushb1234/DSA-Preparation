@@ -1,0 +1,33 @@
+    
+def maximumDifference(root):
+    
+    if root is None:
+        return 0
+    
+    q = Queue()
+    
+    Hleft = 0
+    Hright = 0
+    
+    q.put(root)
+    
+    while not q.empty():
+        
+        size = q.qsize()
+        
+        for i in range(size):
+            
+            front = q.get()
+            
+            if front.left is not None:
+                q.put(front.left)
+                Hleft += 1
+                
+                
+            if front.right is not None:
+                q.put(front.right)
+                Hright += 1
+                
+        diff = Hleft - Hright
+                
+    return  diff <= 1
