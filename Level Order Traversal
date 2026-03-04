@@ -1,0 +1,21 @@
+def levelorder(root):
+    
+    if root is None:
+        return
+    
+    # print(root.data,end=" ")
+    # inorder(root.left)
+    # inorder(root.right)
+    
+    q = deque([root])
+    
+    while q:
+        
+        curr = q.popleft()
+        print(curr.data,end=" ")
+        
+        if curr.left:
+            q.append(curr.left)
+            
+        if curr.right:
+            q.append(curr.right)
