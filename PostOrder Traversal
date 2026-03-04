@@ -1,0 +1,15 @@
+class node:
+    
+    def __init__(self,data):
+        
+        self.data = data
+        self.left = None
+        self.right = None
+
+def postorder(root):
+    if root is None:
+        return
+        
+    postorder(root.left)
+    postorder(root.right)
+    print(root.data,end=" ")
